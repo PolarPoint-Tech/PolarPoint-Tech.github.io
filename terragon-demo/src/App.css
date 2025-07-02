@@ -1,0 +1,65 @@
+/* src/App.css */
+
+/* 保證 html/body/#root 都佔滿整個視窗 */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+/* 頁面最外層，撐滿 header + footer 之外的空間 */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* 留出 header 高度用的間隔 */
+.spacer {
+  height: 64px;
+}
+
+/* main 會自動撐滿 header 與 footer 之間的區域 */
+main {
+  flex: 1;
+}
+
+/* 通用置中容器：左右留邊、上限 1280px */
+.container {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* 以下是你原本的 Logo / Card / Docs 樣式，可依需求保留或移除 */
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

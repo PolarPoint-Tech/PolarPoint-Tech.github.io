@@ -1,0 +1,109 @@
+@import './styles/animations';
+
+.features-section {
+  @extend .fade-block;
+  animation-delay: 0.2s;
+  /* … */
+}
+.features {
+  position: relative;
+  margin-top: -200px;      /* 拉進 Hero 區 225px */
+  padding: 225px 0 4rem;   /* 推開內容，避免被半圓蓋住 */
+  overflow: visible;
+}
+
+.features__curve {
+  position: absolute;
+  top: 0;                  /* 緊貼 Hero 底部 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1400px;
+  height: 225px;
+  object-fit: none;
+  z-index: 2;              /* 一定要比 Hero 更高 */
+}
+
+.features__inner {
+  position: relative;
+  z-index: 3;              /* 文字、卡片都在半圓之上 */
+  text-align: center;
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* 以下略，同前面的排版、卡片樣式 */
+
+
+.features__title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+  color: #111;
+}
+
+.features__subtitle {
+  font-size: 1.5rem;
+  color: #555;
+  margin: 0 auto 2.5rem;
+  max-width: 760px;
+}
+
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .features__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.features__card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 300px;
+  display: flex;
+  align-items: flex-end;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.features__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.features__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  //background: rgba(0, 0, 0, 0.4);
+}
+
+.features__text {
+  position: relative;
+  padding: 1.2rem;
+  color: #fff;
+  z-index: 2;
+}
+
+.features__card-title {
+  font-size: 1.1rem;
+  margin: 0 0 0.6rem;
+}
+
+.features__card-desc {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-height: 3em;
+  overflow: hidden;
+}

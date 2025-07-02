@@ -1,0 +1,93 @@
+
+@import './styles/animations';
+
+.stats-section {
+  @extend .fade-block;
+  animation-delay: 0.3s;
+  /* … */
+}
+
+.stats {
+  position: relative;
+  width: 100vw;              /* 滿版寬度 */
+  margin-left: calc(50% - 50vw); /* 置中滿版（等同 left/transform） */
+  background-color: #f2f2f2;  /* 整區灰底 */
+  background-image: url('../assets/StatsBG.png');
+  background-repeat: no-repeat;
+   background-position: center -20rem; /* 讓地圖從頂部開始 */
+  background-size: 80% auto;       /* 中間地圖佔寬80%，高度自動 */
+  padding: 6rem 0;
+  overflow: hidden;
+}
+
+.stats__inner {
+  position: relative;
+  z-index: 1;
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.stats__title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.stats__subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2.5rem;
+}
+
+.stats__items {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.stats__item {
+  flex: 1 1 calc(20% - 2rem);
+  max-width: calc(20% - 2rem);
+  text-align: center;
+}
+
+.stats__icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1rem;
+}
+
+.stats__big {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a3d8f;
+  margin-bottom: 0.5rem;
+}
+
+.stats__small {
+  font-size: 0.875rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* RWD */
+@media (max-width: 1024px) {
+  .stats__item {
+    flex: 1 1 calc(50% - 2rem);
+    max-width: calc(50% - 2rem);
+  }
+}
+@media (max-width: 600px) {
+  .stats__items {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .stats__item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}

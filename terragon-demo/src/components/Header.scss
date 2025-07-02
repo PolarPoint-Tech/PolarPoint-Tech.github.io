@@ -1,0 +1,82 @@
+/* src/components/Header.scss */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* ▶ 將背景改為透明 */
+  background:  #1F2535;
+  transition: all 0.3s;
+  z-index: 100;
+
+  &.scrolled {
+    top: 16px;
+    width: auto;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+
+    /* 改成實心深藍 */
+    background: #1F2535;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    left: 0;
+    right: 0;
+  }
+}
+
+/* —— 初始狀態：Logo 與 Nav/按鈕 間距 —— */
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;     /* Logo + Nav 置中 */
+  height: 60px;
+  gap: 60rem;                   /* ▶ 初始 gap */
+}
+
+/* —— 滑動後：重設 Logo 與 Nav/按鈕 間距 —— */
+.header.scrolled .header__inner {
+  gap: 17rem;                    /* ▶ 滑動後 gap，可自行調整 */
+}
+
+.header__logo img {
+  height: 100px;
+  margin-top: 7px; 
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  a {
+    color: #fff;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+
+    &:hover { color: #0078ff; }
+  }
+}
+
+.header__btn {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.95rem;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  background-image:
+    linear-gradient(to right, transparent, transparent),
+    linear-gradient(to right, #6f78ff, #50e3c2);
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+  transition: background-image 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    background-image:
+      linear-gradient(to right, #6f78ff, #50e3c2),
+      linear-gradient(to right, #6f78ff, #50e3c2);
+    box-shadow:
+      0 4px 12px rgba(111, 120, 255, 0.5),
+      0 4px 20px rgba(80, 227, 194, 0.4);
+  }
+}
